@@ -1,7 +1,15 @@
 @(message: String)
 
-@main("Welcome to Play") {
+@main("Welcome") {
 
-    @play20.welcome(message)
+    <div ng-app="ChatApp">
+        <div ng-controller="ChatController as chat">
+            <ul>
+                <li ng-repeat="msg in chat.messages track by $index">
+                    {{msg}}
+                </li>
+            </ul>
+        </div>
+    </div>
 
 }
