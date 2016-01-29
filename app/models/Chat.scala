@@ -35,6 +35,6 @@ class Chat extends Actor {
 
   def currentTimedMessage = {
     Logger info  "yo!"
-    new ClientSentMessage(LocalDateTime.now().toString)
+    new ClientSentMessage(LocalDateTime.now.toString)
   }
 }
