@@ -1,8 +1,9 @@
 package models
 
 import akka.actor.{Actor, ActorRef}
+import models.Chat.{ClientSentMessage, Leave, Join}
 
-class ClientActor(out: ActorRef, chat: ActorRef) extends Actor {
+class ClientActor(client: ActorRef, chat: ActorRef) extends Actor {
 
   chat ! Join
 
@@ -14,6 +15,6 @@ class ClientActor(out: ActorRef, chat: ActorRef) extends Actor {
       chat ! ClientSentMessage(text)
 
     case ClientSentMessage(text) =>
-      out ! text
+      client ! text
   }
 }

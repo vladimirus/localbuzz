@@ -4,9 +4,11 @@ import java.time.LocalDateTime
 import java.util.Calendar
 import javax.inject.{Inject, Singleton}
 
+import models.Chat.UpdateTime
+
 import scala.concurrent.duration.DurationInt
 import akka.actor.{ActorSystem, Props, ActorRef}
-import models.{UpdateTime, ClientSentMessage, Chat, ClientActor}
+import models.{Chat, ClientActor}
 import play.api._
 import play.api.libs.concurrent.Akka
 import play.api.mvc._
