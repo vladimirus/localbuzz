@@ -4,11 +4,12 @@ import java.time.LocalDateTime
 import java.util.Calendar
 import javax.inject.{Inject, Singleton}
 
+import models.Article.Update
 import models.Chat.UpdateTime
 
 import scala.concurrent.duration.DurationInt
 import akka.actor.{ActorSystem, Props, ActorRef}
-import models.{Chat, ClientActor}
+import models.{Article, Chat, ClientActor}
 import play.api._
 import play.api.libs.concurrent.Akka
 import play.api.mvc._
@@ -19,9 +20,8 @@ import scala.concurrent.ExecutionContext.Implicits.global
 class Application @Inject()(actorSystem: ActorSystem) extends Controller {
 
   val chat = actorSystem.actorOf(Props[Chat], "chat")
-
-  Logger info  "Scheduling the reminder daemon"
-  actorSystem.scheduler.schedule(0 seconds, 1 seconds, chat, UpdateTime)
+  val article = actorSystem.actorOf(Article.props(chat), "article")
+  actorSystem.scheduler.schedule(0 seconds, 1 seconds, article, Update)
 
   def socket = WebSocket.acceptWithActor[String, String] {
     (request: RequestHeader) =>
