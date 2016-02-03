@@ -1,15 +1,11 @@
 @(message: String)
 
 @main("Welcome") {
-
-    <div ng-app="ChatApp">
+    <div class="row" ng-app="ChatApp">
         <div ng-controller="ChatController as chat">
-            <ul>
-                <li ng-repeat="msg in chat.messages track by $index">
-                    {{msg}}
-                </li>
-            </ul>
+            <div class="col-md-12" ng-repeat="msg in chat.messages track by $index">
+                {{msg}}
+            </div>
         </div>
     </div>
-
 }

@@ -6,7 +6,7 @@ angular.module("ChatApp", []).controller("ChatController", function($scope){
   chat.messages = [];
 
   ws.onmessage = function(msg) {
-    chat.messages.push(msg.data);
+    chat.messages.unshift(msg.data);
     $scope.$digest();
   };
 });
