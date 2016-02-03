@@ -2,8 +2,7 @@ package models
 
 import java.time.LocalDateTime
 
-import akka.actor.{Props, Actor, ActorRef}
-import akka.actor.Actor.Receive
+import akka.actor.{Actor, ActorRef, Props}
 import models.Chat.ClientSentMessage
 import play.api.Logger
 

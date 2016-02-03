@@ -1,20 +1,15 @@
 package controllers
 
-import java.time.LocalDateTime
-import java.util.Calendar
 import javax.inject.{Inject, Singleton}
 
+import akka.actor.{ActorRef, ActorSystem, Props}
 import models.Article.Update
-import models.Chat.UpdateTime
-
-import scala.concurrent.duration.DurationInt
-import akka.actor.{ActorSystem, Props, ActorRef}
 import models.{Article, Chat, ClientActor}
-import play.api._
-import play.api.libs.concurrent.Akka
-import play.api.mvc._
 import play.api.Play.current
+import play.api.mvc._
+
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration.DurationInt
 
 @Singleton
 class Application @Inject()(actorSystem: ActorSystem) extends Controller {

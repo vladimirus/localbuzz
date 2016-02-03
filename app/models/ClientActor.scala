@@ -1,7 +1,7 @@
 package models
 
 import akka.actor.{Actor, ActorRef}
-import models.Chat.{ClientSentMessage, Leave, Join}
+import models.Chat.{ClientSentMessage, Join, Leave}
 
 class ClientActor(client: ActorRef, chat: ActorRef) extends Actor {
 

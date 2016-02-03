@@ -1,9 +1,6 @@
 package models
 
-import java.time.LocalDateTime
-
 import akka.actor.{Actor, ActorRef}
-import play.api.Logger
 
 object Chat {
   case class ClientSentMessage(text: String)
