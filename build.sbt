@@ -11,7 +11,7 @@ libraryDependencies ++= Seq(
   cache,
   ws,
   specs2 % Test,
-  "org.seleniumhq.selenium" % "selenium-firefox-driver" % "2.50.0"
+  "org.seleniumhq.selenium" % "selenium-firefox-driver" % "2.53.0"
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
