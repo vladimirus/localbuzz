@@ -20,7 +20,6 @@ class Article(chat: ActorRef) extends Actor {
   }
 
   def latestArticles = {
-    Logger info  "yo!"
     new ClientSentMessage(LocalDateTime.now.toString)
   }
 }

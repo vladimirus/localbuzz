@@ -1,6 +1,7 @@
 package models
 
 import akka.actor.{Actor, ActorRef}
+import play.api.Logger
 
 object Chat {
   case class ClientSentMessage(text: String)
@@ -16,9 +17,11 @@ class Chat extends Actor {
 
   def process(subscribers: Set[ActorRef]): Receive = {
     case Join =>
+      Logger info  "user joined"
       context become process(subscribers + sender)
 
     case Leave =>
+      Logger info  "user left"
       context become process(subscribers - sender)
 
     case msg: ClientSentMessage =>
