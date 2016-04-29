@@ -17,11 +17,11 @@ class Chat extends Actor {
 
   def process(subscribers: Set[ActorRef]): Receive = {
     case Join =>
-      Logger info  "user joined"
+      Logger info  "User joined"
       context become process(subscribers + sender)
 
     case Leave =>
-      Logger info  "user left"
+      Logger info  "User left"
       context become process(subscribers - sender)
 
     case msg: ClientSentMessage =>
