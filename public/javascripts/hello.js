@@ -4,7 +4,7 @@ angular.module("ChatApp", []).controller("ChatController", function($scope){
   var port = window.document.location.port;
   var ws = new WebSocket('ws://'+ host+':'+ port +'/socket');
 
-    var chat = this;
+  var chat = this;
   chat.messages = [];
 
   ws.onmessage = function(msg) {
