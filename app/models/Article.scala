@@ -1,10 +1,9 @@
 package models
 
-import java.time.LocalDateTime
+import java.time.LocalDateTime.now
 
 import akka.actor.{Actor, ActorRef, Props}
 import models.Chat.ClientSentMessage
-import play.api.Logger
 
 object Article {
   case object Update
@@ -20,6 +19,6 @@ class Article(chat: ActorRef) extends Actor {
   }
 
   def latestArticles = {
-    new ClientSentMessage(LocalDateTime.now.toString)
+    new ClientSentMessage(now.toString)
   }
 }
